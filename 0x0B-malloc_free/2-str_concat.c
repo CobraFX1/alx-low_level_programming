@@ -17,7 +17,7 @@ char *str_concat(char *s1, char *s2)
 	int counts2 = 0;
 	int count = 0;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 	while (s1[i] != '\0')
 	{
