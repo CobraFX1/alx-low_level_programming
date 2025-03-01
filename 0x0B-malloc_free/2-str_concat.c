@@ -17,8 +17,10 @@ char *str_concat(char *s1, char *s2)
 	int counts2 = 0;
 	int count = 0;
 
-	if (s1 == NULL && s2 == NULL)
-		return (NULL);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 	while (s1[i] != '\0')
 	{
 		counts1 += 1;
@@ -37,6 +39,6 @@ char *str_concat(char *s1, char *s2)
 		new[i] = s1[i];
 	for (j = 0; j < counts2; j++)
 		new[i + j] = s2[j];
-	new[count] = '\0';
+	new[count - 1] = '\0';
 	return (new);
 }
