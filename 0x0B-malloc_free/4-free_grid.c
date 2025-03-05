@@ -1,8 +1,8 @@
-#include "main.h" 
+#include "main.h"
 
 /**
  * free_grid - frees the memory allocated to a 2D array
- * @**grid: the array 
+ * @grid: the array
  * @height: the height of the array
  *
  * Return: 0(Success)
