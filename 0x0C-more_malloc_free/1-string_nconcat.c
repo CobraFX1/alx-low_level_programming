@@ -24,27 +24,18 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		cnts1++;
 	while (s2[cnts2] != '\0')
 		cnts2++;
-	if (n >= cnts2)
+	if (n < cnts2)
+		cnts2 = n;
+	new = malloc(sizeof(char) * (cnts1 + cnts2 + 1));
+	if (new == NULL)
 	{
-		new = malloc(sizeof(char) * (cnts1 + cnts2 + 1));
-		if (new == NULL)
-			return (NULL);
-		for (i = 0; i < cnts1; i++)
-			new[i] = s1[i];
-		for (j = 0; j < cnts2; j++)
-			new[i + j] = s2[j];
-		new[i + j + 1] = '\0';
+		free(new);
+		return (NULL);
 	}
-	else
-	{
-		new = malloc(sizeof(char) * (cnts1 + n + 1));
-		if (new == NULL)
-			return (NULL);
-		for (i = 0; i < cnts1; i++)
-			new[i] = s1[i];
-		for (j = 0; j < n; j++)
-			new[i + j] = s2[j];
-		new[i + n + 1] = '\0';
-	}
+	for (i = 0; i < cnts1; i++)
+		new[i] = s1[i];
+	for (j = 0; j < cnts2; j++)
+		new[i + j] = s2[j];
+	new[i + j] = '\0';
 	return (new);
 }
