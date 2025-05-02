@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include "lists.h"
 
-unsigned int _strlen(char *str);
 list_t *add_node(list_t **head, const char *str)
 {
     list_t *new;
@@ -24,11 +23,4 @@ list_t *add_node(list_t **head, const char *str)
     new->next = *head;
     *head = new;
     return (new);
-}
-unsigned int _strlen(char *str)
-{
-	int i;
-	for (i = 0; str[i] != '\0'; i++)
-		;
-	return (i);
 }
